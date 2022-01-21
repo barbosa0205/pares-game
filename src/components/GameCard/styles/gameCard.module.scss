@@ -1,0 +1,11 @@
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 25rem;
+    height: 25rem;
+    margin: 1rem;
+    background: var(--purple);
+    color: var(--camell);
+    border-radius: 1rem;
+}

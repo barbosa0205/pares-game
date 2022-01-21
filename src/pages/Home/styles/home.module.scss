@@ -1,0 +1,9 @@
+.mainContainer {
+    display: grid;
+    grid-template-areas:
+        'menubar '
+        'carrousel'
+        'navbar';
+    width: 100%;
+    min-height: 100vh;
+}

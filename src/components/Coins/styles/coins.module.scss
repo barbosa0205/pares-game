@@ -1,0 +1,26 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coinImg {
+    width: 4rem;
+    height: 4rem;
+    @media (min-width: 430px) {
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+.coinContainer {
+    padding: 0.2rem 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--light-gray);
+    border-radius: 0.3rem;
+    background: var(--dark);
+    @media (min-width: 420px) {
+        font-size: 2.3rem;
+    }
+}

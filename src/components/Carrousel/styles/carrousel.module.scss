@@ -1,0 +1,10 @@
+.carrouselContainer {
+    display: flex;
+    max-height: 28rem;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #3a1638 transparent;
+}
