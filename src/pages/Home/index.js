@@ -9,10 +9,6 @@ export const HomePage = () => {
             <Menubar />
             <Carrousel>
                 <GameCard />
-                <GameCard />
-                <GameCard />
-                <GameCard />
-                <GameCard />
             </Carrousel>
         </div>
     )

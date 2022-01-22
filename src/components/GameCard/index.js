@@ -1,10 +1,11 @@
 import React from 'react'
+import { Button } from '../Button'
 
 import styles from './styles/gameCard.module.scss'
 export const GameCard = () => {
     return (
         <article className={styles.cardContainer}>
-            <h1>GAMECARD</h1>
+            <Button text={'Play'} />
         </article>
     )
 }

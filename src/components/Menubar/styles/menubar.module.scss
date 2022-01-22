@@ -16,12 +16,16 @@
         min-height: 6rem;
 
         & .userContainer {
-            display: flex;
-            justify-content: space-evenly;
+            display: grid;
+            grid-template-areas:
+                'userImg userName'
+                'userImg userName'
+                'userImg label'
+                'level level ';
             align-items: center;
-            width: 50%;
+            width: 70%;
             height: 100%;
-            margin: 0.5rem;
+            margin-top: 0.5rem;
             padding: 0.5rem;
             background: var(--dark);
             & .userImg {
@@ -30,11 +34,41 @@
                 border-radius: 50%;
                 background: var(--purple);
                 margin: 0 0.5rem;
+                grid-area: userImg;
             }
             & .userName {
                 font-size: 1.8rem;
                 font-weight: 500;
                 color: var(--camell);
+                grid-area: userName;
+            }
+
+            & .label {
+                grid-area: label;
+                color: var(--light-gray);
+
+                & > span {
+                    color: var(--camell);
+                }
+            }
+
+            .levelContainer {
+                display: flex;
+                grid-area: level;
+
+                & span {
+                    font-size: 1.8rem;
+                    font-weight: 500;
+                    color: var(--camell);
+                    margin: 0 0.5rem;
+                }
+                p {
+                    margin: 0 1rem;
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                    color: var(--gold);
+                    text-shadow: 2px 0px var(--camell), -2px 0px var(--camell);
+                }
             }
         }
     }

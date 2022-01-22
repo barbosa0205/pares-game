@@ -8,23 +8,10 @@
     grid-area: navbar;
     height: 8rem;
     background: var(--transparent-white);
-    i {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 7rem;
-        height: 5rem;
-        border-radius: 0.5rem;
-        font-weight: 600;
-        font-size: 3rem;
-        list-style: none;
-        margin: 0 0.5rem;
-        color: var(--camell);
-        background: var(--purple);
 
-        &:hover {
-            transform: scale(1.04);
-            transition: 0.1s ease-in-out;
+    & .active {
+        & > i {
+            color: var(--gold);
         }
     }
 }

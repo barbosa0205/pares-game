@@ -7,7 +7,10 @@
     --transparent-white: #72717160;
     --light-gray: #cecdcd;
     --camell: #dfad3a;
+    --cajeta: #8b6c22;
     --gold: #f6ec99;
+
+    --main-font: 'Mochiy Pop P One', sans-serif;
 }
 
 html {
@@ -16,10 +19,17 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: 'Mochiy Pop P One', sans-serif;
+    font-family: var(--main-font);
 }
 
 a {
     text-decoration: none;
     color: var(--camell);
+}
+
+button {
+    font-family: var(--main-font);
+    border: none;
+    background: none;
+    cursor: pointer;
 }
