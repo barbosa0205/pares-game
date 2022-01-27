@@ -37,14 +37,6 @@ export const Navbar = () => {
             >
                 <Icon className="ri-fridge-line" />
             </NavLink>
-            <NavLink
-                className={({ isActive }) =>
-                    isActive ? styles.active : undefined
-                }
-                to="/settings"
-            >
-                <Icon className="ri-settings-3-line" />
-            </NavLink>
         </nav>
     )
 }

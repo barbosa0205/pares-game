@@ -7,7 +7,7 @@ export const Menubar = () => {
     return (
         <nav className={styles.menuContainer}>
             <section className={styles.coinsSection}>
-                <Coins name={'xp'} mount={'300/1000'} coinIcon={xpIcon} />
+                <Coins name={'xp'} mount={'300/1300'} coinIcon={xpIcon} />
                 <Coins name={'coin'} mount={2342} coinIcon={coinIcon} />
                 <Coins
                     name={'gold'}
@@ -18,18 +18,18 @@ export const Menubar = () => {
             <section className={styles.userSection}>
                 <div className={styles.userContainer}>
                     <div className={styles.userImg}></div>
-                    <p className={styles.userName}>Wicho</p>
+                    <p className={styles.userName}>Wicho777VEGGET</p>
                     <p className={styles.label}>
-                        CLAN: [<span>MX</span>]
+                        CLAN: [<span>MXMX</span>]
                     </p>
                     <div className={styles.levelContainer}>
                         <span>
-                            lvl: <p>10</p>
+                            lvl: <p>1000</p>
                         </span>
                         <input
                             type="range"
                             min={0}
-                            max={1000}
+                            max={1300}
                             value={300}
                             readOnly
                         />

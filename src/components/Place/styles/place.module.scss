@@ -1,0 +1,28 @@
+.place {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: var(--dark);
+    border-radius: 50%;
+}
+
+.place1 {
+    grid-area: player1;
+}
+.place2 {
+    grid-area: player2;
+}
+.place3 {
+    grid-area: player3;
+}
+.place4 {
+    grid-area: player4;
+}
+.place5 {
+    grid-area: player5;
+}
+.place6 {
+    grid-area: player6;
+}

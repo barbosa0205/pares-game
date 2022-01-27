@@ -2,8 +2,18 @@
     display: grid;
     grid-template-areas:
         'menubar '
+        'title'
         'carrousel'
-        'navbar';
+        '.'
+        '.';
     width: 100%;
     min-height: 100vh;
+
+    h1 {
+        margin: 3rem 0;
+        grid-area: title;
+        text-align: center;
+        font-size: 2.3rem;
+        color: var(--camell);
+    }
 }

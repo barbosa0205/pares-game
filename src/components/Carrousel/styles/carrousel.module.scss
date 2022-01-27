@@ -1,8 +1,8 @@
 .carrouselContainer {
     display: flex;
-    max-height: 28rem;
     justify-content: space-evenly;
     align-items: center;
+    padding-bottom: 5rem;
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;

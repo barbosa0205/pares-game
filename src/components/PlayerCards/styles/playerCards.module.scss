@@ -1,0 +1,10 @@
+.playerCardsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 15rem;
+    background: var(--transparent-white);
+    grid-area: playerCards;
+}
