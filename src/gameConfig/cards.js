@@ -15,7 +15,7 @@ const numbers = [
     'Q',
     'K',
 ]
-export const generateDeackOfCards = () => {
+export const generateDeckOfCards = () => {
     figures.forEach(figure => {
         numbers.forEach(number => {
             deck.push({

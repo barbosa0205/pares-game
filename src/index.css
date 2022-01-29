@@ -2,15 +2,19 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    --white: #ececec;
     --dark: #232323;
     --purple: #3a1638;
     --transparent-white: #72717160;
     --light-gray: #cecdcd;
     --camell: #dfad3a;
+    --danger: #eb3e3e;
     --cajeta: #8b6c22;
     --gold: #f6ec99;
     --green: #2c5c09;
     --dark-green: #114411;
+    --facebook: #3b5998;
+    --google: #d34836;
 
     --main-font: 'Mochiy Pop P One', sans-serif;
 }
@@ -34,4 +38,16 @@ button {
     border: none;
     background: none;
     cursor: pointer;
+}
+
+input {
+    border: none;
+    background: var(--transparent-white);
+    outline: none;
+    padding: 1rem 0 1rem 1rem;
+}
+
+input::placeholder {
+    font-size: 1.6rem;
+    color: var(--white);
 }

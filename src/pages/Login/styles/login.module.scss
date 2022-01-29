@@ -1,0 +1,57 @@
+@import '../../../styles/mixins.scss';
+
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 10rem;
+
+    & > h1 {
+        @include title(3rem 0, center, 4rem, var(--camell));
+    }
+
+    & > h2 {
+        @include title(3rem 0, center, 3rem, var(--gold));
+    }
+
+    & .otherAuthContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 1rem;
+
+        .iconsContainer {
+            padding: 2rem 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            & > i {
+                width: 8rem;
+                height: 8rem;
+                margin: 0 1.5rem;
+                padding: 1.5rem;
+                font-size: 5rem;
+                color: var(--light-gray);
+                box-shadow: 0px 0px 10px var(--dark);
+                cursor: pointer;
+                &:first-child {
+                    background: var(--google);
+                }
+
+                &:nth-child(2) {
+                    background: var(--facebook);
+                }
+            }
+        }
+    }
+
+    .goldText {
+        font-size: 1.4rem;
+        color: var(--gold);
+        text-align: center;
+    }
+}

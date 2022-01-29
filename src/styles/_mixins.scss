@@ -1,0 +1,6 @@
+@mixin title($margin, $textAlign, $fontSize, $color) {
+    margin: $margin;
+    text-align: $textAlign;
+    font-size: $fontSize;
+    color: $color;
+}

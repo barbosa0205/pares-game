@@ -1,3 +1,5 @@
+@import '../../../styles/mixins.scss';
+
 .mainContainer {
     display: grid;
     grid-template-areas:
@@ -10,10 +12,7 @@
     min-height: 100vh;
 
     h1 {
-        margin: 3rem 0;
         grid-area: title;
-        text-align: center;
-        font-size: 2.3rem;
-        color: var(--camell);
+        @include title(2rem 0, center, 3rem, var(--camell));
     }
 }
