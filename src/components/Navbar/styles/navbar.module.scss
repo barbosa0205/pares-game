@@ -1,17 +1,41 @@
 .mainContainer {
     position: fixed;
     bottom: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-items: center;
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 4rem;
     padding: 0.2rem 0;
     background: var(--transparent-white);
 
+    & i {
+        margin: 0 1rem;
+    }
+
     & .active {
         & > i {
             color: var(--gold);
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    .mainContainer {
+        height: 5rem;
+
+        & i {
+            width: 8rem;
+            margin: 0 2rem;
+        }
+    }
+}
+@media (min-width: 768px) {
+    .mainContainer {
+        height: 6rem;
+
+        & i {
+            width: 12rem;
+            margin: 0 2rem;
         }
     }
 }

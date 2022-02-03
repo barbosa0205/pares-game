@@ -7,32 +7,26 @@ export const Navbar = () => {
         <nav className={styles.mainContainer}>
             <NavLink
                 className={({ isActive }) =>
-                    '' + (isActive ? styles.active : undefined)
+                    '' + (isActive ? styles.active : null)
                 }
                 to="/store"
             >
                 <Icon className="ri-shopping-cart-line" />
             </NavLink>
             <NavLink
-                className={({ isActive }) =>
-                    isActive ? styles.active : undefined
-                }
+                className={({ isActive }) => (isActive ? styles.active : null)}
                 to="/friends"
             >
                 <Icon className="ri-group-line" />
             </NavLink>
             <NavLink
-                className={({ isActive }) =>
-                    isActive ? styles.active : undefined
-                }
+                className={({ isActive }) => (isActive ? styles.active : null)}
                 to="/"
             >
                 <Icon className="ri-home-4-line" />
             </NavLink>
             <NavLink
-                className={({ isActive }) =>
-                    isActive ? styles.active : undefined
-                }
+                className={({ isActive }) => (isActive ? styles.active : null)}
                 to="/locker"
             >
                 <Icon className="ri-fridge-line" />

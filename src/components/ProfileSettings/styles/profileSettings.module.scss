@@ -1,0 +1,101 @@
+@import '../../../styles/_mixins.scss'; // Import mixins
+
+.profileSettingsContainer {
+    width: 95%;
+    max-width: 55rem;
+    display: grid;
+    grid-template-areas:
+        'subtitle subtitle'
+        'img img'
+        'name-clan-container name-clan-container'
+        'button button';
+    justify-items: center;
+    border-bottom: 2px solid var(--camell);
+    border-radius: 0.5rem;
+    background: var(--dark);
+
+    & .subtitle {
+        width: 100%;
+        grid-area: subtitle;
+        @include subtitle(2rem 0, center, 1.8rem, var(--camell));
+        border-top: 2px solid var(--camell);
+        border-bottom: 2px solid var(--camell);
+        padding: 1rem 0;
+    }
+
+    & .settingImgContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        grid-area: img;
+        & .imgContainer {
+            display: flex;
+            justify-content: center;
+            width: 10rem;
+            height: 10rem;
+            margin-bottom: 2rem;
+            background: var(--gold);
+            border-radius: 50%;
+
+            & > img {
+                width: 100%;
+                height: 100%;
+                border-radius: inherit;
+            }
+        }
+        & > i {
+            width: 3rem;
+            height: 3rem;
+            background: none;
+            padding: 0;
+            margin: 0;
+            margin-left: 1rem;
+            cursor: pointer;
+            color: var(--purple);
+            background: var(--camell);
+        }
+    }
+
+    & .nameClanContainer {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 0 1rem;
+        grid-area: name-clan-container;
+
+        & .usernameInput {
+            width: 80%;
+            margin: 1rem;
+            background: none;
+            font-size: 2rem;
+            color: var(--gold);
+            background: var(--transparent-dark);
+        }
+
+        & .corchete {
+            width: 2rem;
+            height: 2rem;
+            margin: 0.5rem 0;
+            color: var(--camell);
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 0 0.3rem var(--camell);
+        }
+
+        & .clanInput {
+            width: 40%;
+            margin: 1rem;
+            background: none;
+            font-size: 2rem;
+            color: var(--gold);
+            background: var(--transparent-dark);
+        }
+    }
+
+    & button {
+        margin: 2rem 0;
+        grid-area: button;
+    }
+}

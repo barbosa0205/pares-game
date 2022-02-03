@@ -6,6 +6,7 @@
     --dark: #232323;
     --purple: #3a1638;
     --transparent-white: #72717160;
+    --transparent-dark: rgba(39, 39, 39, 0.808);
     --light-gray: #cecdcd;
     --camell: #dfad3a;
     --danger: #eb3e3e;
@@ -26,6 +27,14 @@ html {
 body {
     font-size: 1.6rem;
     font-family: var(--main-font);
+    background-image: linear-gradient(
+        to left bottom,
+        #39006d,
+        #4e0071,
+        #610174,
+        #720676,
+        #830e79
+    );
 }
 
 a {
@@ -50,4 +59,11 @@ input {
 input::placeholder {
     font-size: 1.6rem;
     color: var(--white);
+}
+
+.container-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

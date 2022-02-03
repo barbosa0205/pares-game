@@ -4,3 +4,9 @@
     font-size: $fontSize;
     color: $color;
 }
+@mixin subtitle($margin, $textAlign, $fontSize, $color) {
+    margin: $margin;
+    text-align: $textAlign;
+    font-size: $fontSize;
+    color: $color;
+}

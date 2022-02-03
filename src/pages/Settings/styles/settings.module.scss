@@ -1,0 +1,13 @@
+@import '../../../styles/_mixins.scss'; // Import mixins
+
+.settingsContainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > h1 {
+        @include title(2rem 0, center, 3rem, var(--camell));
+    }
+}

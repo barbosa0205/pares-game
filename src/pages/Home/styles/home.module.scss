@@ -9,10 +9,17 @@
         '.'
         '.';
     width: 100%;
-    min-height: 100vh;
+    min-height: 76rem;
+    height: 100vh;
 
     h1 {
         grid-area: title;
         @include title(2rem 0, center, 3rem, var(--camell));
+        @media (min-width: 600px) {
+            @include title(2rem 0, center, 4rem, var(--camell));
+        }
+        @media (min-width: 768px) {
+            @include title(2rem 0, center, 4.5rem, var(--camell));
+        }
     }
 }

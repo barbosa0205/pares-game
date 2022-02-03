@@ -1,0 +1,77 @@
+@import '../../../styles/_mixins.scss';
+
+.playOtionsContainer {
+    width: 95%;
+    max-width: 60rem;
+    min-height: 25rem;
+    border-radius: 1rem;
+    background: var(--dark);
+    border: 0.8rem solid var(--camell);
+
+    & > .closeContainer {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        & > p {
+            @include title(0, center, 2.5rem, var(--gold));
+            padding: 1rem 1rem 0 1rem;
+            cursor: pointer;
+        }
+    }
+
+    & > h2 {
+        @include title(2rem 0, center, 2.5rem, var(--gold));
+    }
+
+    & .optionsContainer {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        height: auto;
+
+        & > .optionContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40%;
+            height: 20rem;
+            & > i {
+                width: 90%;
+                height: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 8rem;
+                padding: 2rem;
+                background: var(--camell);
+                border: 0.4rem solid var(--gold);
+                color: var(--dark);
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.04);
+                    transition: 0.1s ease-in-out;
+                }
+            }
+
+            & > p {
+                @include title(0.5rem 0, center, 1.8rem, var(--gold));
+            }
+        }
+    }
+
+    .backContainer {
+        width: 100%;
+
+        & > i {
+            margin: 0;
+            margin-left: 2rem;
+            font-size: 3.5rem;
+            padding: 0;
+            background: var(--camell);
+            color: var(--dark);
+            cursor: pointer;
+        }
+    }
+}

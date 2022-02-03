@@ -8,22 +8,15 @@ import { generateDeckOfCards } from '../../gameConfig/cards'
 import { socket } from '../../components/Socket'
 
 import styles from './styles/game.module.scss'
+import { useUser } from '../../contexts/user/useUser'
 import { useGame } from '../../contexts/game/useGame'
 import { useParams } from 'react-router-dom'
 export const GamePage = () => {
     const params = useParams()
-    const { user } = useGame()
+    const { user } = useUser()
     const room = params.gameId
     const [deck, setDeck] = useState([])
     const [party, setParty] = useState([])
-
-    useEffect(() => {
-        socket.emit('room', { ...user, room: room })
-        socket.emit('player joined', { ...user, room: room })
-        setParty([...party, user])
-
-        // setDeck(generateDeckOfCards())
-    }, [])
 
     return (
         <div className={styles.gameContainer}>
