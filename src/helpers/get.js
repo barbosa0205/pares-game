@@ -22,9 +22,21 @@ export const userAlreadyExists = async username => {
 
     const querySnapshot = await getDocs(q)
     querySnapshot.forEach(doc => {
-        if (doc) {
-            userExist = doc.data()
-        }
+        userExist = doc.data()
     })
+
     return userExist
+}
+
+export const getUserByEmail = async email => {
+    let user
+    const usersRef = collection(db, 'users')
+    const q = query(usersRef, where('email', '==', email))
+
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach(doc => {
+        user = doc.data()
+    })
+
+    return user
 }

@@ -7,6 +7,7 @@
     --purple: #3a1638;
     --transparent-white: #72717160;
     --transparent-dark: rgba(39, 39, 39, 0.808);
+    --blur: rgba(39, 39, 39, 0.5);
     --light-gray: #cecdcd;
     --camell: #dfad3a;
     --danger: #eb3e3e;
@@ -18,6 +19,7 @@
     --google: #d34836;
 
     --main-font: 'Mochiy Pop P One', sans-serif;
+    --text-font: 'Lato', sans-serif;
 }
 
 html {

@@ -1,0 +1,64 @@
+.changeProfileImageContainer {
+    width: 95%;
+    max-width: 70rem;
+    min-height: 40rem;
+    background: var(--purple);
+    border: 5px ridge var(--camell);
+    border-radius: 1rem;
+
+    & .closeContainer {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        & > i {
+            font-size: 2.5rem;
+            margin: 0;
+            padding: 0;
+            margin-top: 0.5rem;
+            background: none;
+            color: var(--gold);
+            cursor: pointer;
+        }
+    }
+
+    & .dropZone {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+        border: 2px dashed var(--gold);
+        margin: 1rem auto;
+        cursor: pointer;
+
+        & > p {
+            width: 80%;
+            font-size: 1.4rem;
+            font-family: var(--text-font);
+            font-weight: 600;
+            text-align: center;
+            color: var(--gold);
+        }
+
+        & > img {
+            object-fit: cover;
+            object-position: top;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+        }
+    }
+
+    & .avatarsContainer {
+        width: 100%;
+        & > h3 {
+            color: var(--camell);
+            font-family: var(--text-font);
+            font-size: 1.8rem;
+            margin: 0 auto;
+            text-align: center;
+            width: 90%;
+        }
+    }
+}

@@ -1,101 +1,109 @@
 @import '../../../styles/_mixins.scss'; // Import mixins
 
 .profileSettingsContainer {
-    width: 95%;
-    max-width: 55rem;
-    display: grid;
-    grid-template-areas:
-        'subtitle subtitle'
-        'img img'
-        'name-clan-container name-clan-container'
-        'button button';
-    justify-items: center;
+    background: var(--dark);
     border-bottom: 2px solid var(--camell);
     border-radius: 0.5rem;
-    background: var(--dark);
+    display: grid;
+    grid-template-areas:
+        'subtitle'
+        'img'
+        'name-clan-container'
+        'errors'
+        'button';
+    justify-items: center;
+    max-width: 55rem;
+    width: 95%;
+    margin-bottom: 5rem;
 
     & .subtitle {
-        width: 100%;
-        grid-area: subtitle;
         @include subtitle(2rem 0, center, 1.8rem, var(--camell));
-        border-top: 2px solid var(--camell);
         border-bottom: 2px solid var(--camell);
+        border-top: 2px solid var(--camell);
+        grid-area: subtitle;
         padding: 1rem 0;
+        width: 100%;
     }
 
     & .settingImgContainer {
-        display: flex;
-        justify-content: center;
         align-items: center;
-        width: 100%;
+        display: flex;
         grid-area: img;
+        justify-content: center;
+        width: 100%;
         & .imgContainer {
-            display: flex;
-            justify-content: center;
-            width: 10rem;
-            height: 10rem;
-            margin-bottom: 2rem;
-            background: var(--gold);
             border-radius: 50%;
+            border: 3px solid var(--gold);
+            display: flex;
+            height: 10rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            width: 10rem;
 
             & > img {
-                width: 100%;
-                height: 100%;
                 border-radius: inherit;
+                height: 100%;
+                width: 100%;
             }
         }
         & > i {
-            width: 3rem;
-            height: 3rem;
             background: none;
-            padding: 0;
-            margin: 0;
-            margin-left: 1rem;
-            cursor: pointer;
-            color: var(--purple);
             background: var(--camell);
+            color: var(--dark);
+            cursor: pointer;
+            height: 3rem;
+            margin: 0;
+            padding: 0;
+            margin-left: 1rem;
+            width: 3rem;
         }
     }
 
     & .nameClanContainer {
         display: flex;
-        justify-content: center;
-        width: 100%;
-        padding: 0 1rem;
         grid-area: name-clan-container;
+        justify-content: center;
+        padding: 0 1rem;
+        width: 100%;
 
         & .usernameInput {
-            width: 80%;
-            margin: 1rem;
             background: none;
-            font-size: 2rem;
-            color: var(--gold);
             background: var(--transparent-dark);
+            color: var(--gold);
+            font-size: 2rem;
+            margin: 1rem;
+            width: 80%;
         }
 
         & .corchete {
-            width: 2rem;
-            height: 2rem;
-            margin: 0.5rem 0;
             color: var(--camell);
             font-size: 3rem;
             font-weight: bold;
+            height: 2rem;
+            margin: 0.5rem 0;
             text-align: center;
             text-shadow: 0 0 0.3rem var(--camell);
+            width: 2rem;
         }
 
         & .clanInput {
-            width: 40%;
-            margin: 1rem;
             background: none;
-            font-size: 2rem;
-            color: var(--gold);
             background: var(--transparent-dark);
+            color: var(--gold);
+            font-size: 2rem;
+            margin: 1rem;
+            width: 40%;
         }
     }
 
+    & .errors {
+        color: var(--google);
+        grid-area: errors;
+        text-align: center;
+    }
+
     & button {
-        margin: 2rem 0;
         grid-area: button;
+        margin: 2rem 0;
     }
 }

@@ -10,7 +10,6 @@ import { PlayOptions } from '../../components/PlayOptions'
 import { useUser } from '../../contexts/user/useUser'
 import { CreateAPassword } from '../../components/CreateAPassword'
 import { useMenu } from '../../hooks/useMenu'
-import { getRandomAvatar } from '../../helpers/getRandomAvatar'
 export const HomePage = () => {
     const [menu, toggleMenu] = useMenu(true)
     const { isLoggedInWithGoogle } = useUser()
