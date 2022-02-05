@@ -1,0 +1,20 @@
+.avatarsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > h3 {
+        font-size: 1.8rem;
+        text-align: center;
+        color: var(--camell);
+        text-shadow: 0 0 1px var(--cajeta);
+        margin-top: 1rem;
+    }
+
+    .avatars {
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 10rem);
+    }
+}

@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useUser } from '../../contexts/user/useUser'
 import { Button } from '../Button'
 import styles from './styles/createAPassword.module.scss'
 export const CreateAPassword = ({ toggleMenu }) => {
+    const navigate = useNavigate()
     const { setIsLoggedInWithGoogle } = useUser()
     return (
         <div className={`container-column`}>
@@ -27,7 +29,10 @@ export const CreateAPassword = ({ toggleMenu }) => {
                     Al crear una contraseña tambien podria iniciar sesion con la
                     opcion de correo electronico y contraseña
                 </p>
-                <Button text="Crear contreaseña" />
+                <Button
+                    text="Crear contreaseña"
+                    onClick={() => navigate('/settings')}
+                />
             </div>
         </div>
     )

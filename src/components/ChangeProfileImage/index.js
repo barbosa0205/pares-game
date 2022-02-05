@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { useUser } from '../../contexts/user/useUser'
+import { Avatars } from '../Avatars'
 import styles from './styles/changeProfileImage.module.scss'
 
 export const ChangeProfileImage = ({ close }) => {
@@ -23,8 +24,11 @@ export const ChangeProfileImage = ({ close }) => {
 
     return (
         <div className={styles.changeProfileImageContainer}>
-            <div className={styles.closeContainer}>
-                <i onClick={() => close(c => !c)}>X</i>
+            <div className={styles.backContainer}>
+                <i
+                    className={'ri-arrow-left-line'}
+                    onClick={() => close(c => !c)}
+                ></i>
             </div>
             <div className={styles.dropZone} {...getRootProps()}>
                 <input {...getInputProps()} />
@@ -36,8 +40,7 @@ export const ChangeProfileImage = ({ close }) => {
                 )}
             </div>
             <div className={styles.avatarsContainer}>
-                <h3>tambien puedes elegir un avatar</h3>
-                <div className={styles.avatar}></div>
+                <Avatars />
             </div>
         </div>
     )

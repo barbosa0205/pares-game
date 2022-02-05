@@ -25,7 +25,7 @@ export const userAlreadyExists = async username => {
         userExist = doc.data()
     })
 
-    return userExist
+    return userExist?.username
 }
 
 export const getUserByEmail = async email => {

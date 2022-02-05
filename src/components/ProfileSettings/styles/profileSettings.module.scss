@@ -1,20 +1,18 @@
 @import '../../../styles/_mixins.scss'; // Import mixins
 
 .profileSettingsContainer {
-    background: var(--dark);
-    border-bottom: 2px solid var(--camell);
-    border-radius: 0.5rem;
+    border-radius: inherit;
     display: grid;
     grid-template-areas:
         'subtitle'
         'img'
         'name-clan-container'
         'errors'
-        'button';
+        'button'
+        'success';
     justify-items: center;
     max-width: 55rem;
     width: 95%;
-    margin-bottom: 5rem;
 
     & .subtitle {
         @include subtitle(2rem 0, center, 1.8rem, var(--camell));
@@ -100,6 +98,14 @@
         color: var(--google);
         grid-area: errors;
         text-align: center;
+    }
+
+    & .success {
+        color: var(--gold);
+        text-shadow: 0 0 3px var(--camell);
+        grid-area: success;
+        text-align: center;
+        margin-bottom: 1rem;
     }
 
     & button {
