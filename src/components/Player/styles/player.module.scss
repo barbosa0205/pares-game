@@ -1,6 +1,18 @@
 .playerContainer {
-    width: 5rem;
-    height: 5rem;
-    background: var(--light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0 auto;
+    width: 7rem;
+    height: 7rem;
     border-radius: 50%;
+    background-color: var(--transparent-white);
+
+    & img {
+        width: inherit;
+        height: inherit;
+        border-radius: 50%;
+        object-position: center;
+        object-fit: cover;
+    }
 }

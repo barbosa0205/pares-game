@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Carrousel } from '../../components/Carrousel'
 import { GameCard } from '../../components/GameCard'
 import { Menubar } from '../../components/Menubar'
@@ -14,10 +14,6 @@ export const HomePage = () => {
     const [menu, toggleMenu] = useMenu(true)
     const { isLoggedInWithGoogle } = useUser()
     const [playModal, setPlayModal] = useState(false)
-
-    useEffect(() => {
-        return () => {}
-    }, [])
 
     return (
         <>

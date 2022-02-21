@@ -6,13 +6,12 @@ import { updateUserById } from '../../helpers/update'
 import { useForm } from '../../hooks/useForm'
 import { Button } from '../Button'
 import { ChangeProfileImage } from '../ChangeProfileImage'
-import { Modal } from '../Modal'
 
 import styles from './styles/profileSettings.module.scss'
 
 export const ProfileSettings = () => {
     const { user, setUser } = useUser()
-    const [profileValues, handleProfileChange, handleBlur] = useForm(
+    const [profileValues, handleProfileChange] = useForm(
         {
             username: user.username,
             clan: user.clan,

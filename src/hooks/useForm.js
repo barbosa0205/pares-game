@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 export const useForm = (initialState, validationsForm) => {
     const [values, setValues] = React.useState(initialState)
     const [errors, setErrors] = useState(null)
+
     const handleInputChange = e => {
         setValues({
             ...values,

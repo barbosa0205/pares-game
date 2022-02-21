@@ -11,7 +11,7 @@ import {
 } from 'firebase/auth'
 import { auth, db } from '../../firebase/credentials'
 import { addDoc, collection, getDocs, query, where } from 'firebase/firestore'
-import { getRandomAvatar } from '../../helpers/getRandomAvatar'
+import { getRandomAvatar } from '../../helpers/avatars/getRandomAvatar'
 import { getError } from '../../helpers/loginErrors'
 import { registerErrors } from '../../helpers/registerErrors'
 import { getUserByEmail } from '../../helpers/get'

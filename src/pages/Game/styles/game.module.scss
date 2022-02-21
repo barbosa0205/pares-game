@@ -2,15 +2,33 @@
     width: 100%;
     height: 100vh;
     display: grid;
-    gap: 1rem;
-    grid-template-areas:
-        'playersContainer playersContainer playersContainer'
-        'playerContainer playerContainer playerContainer'
-        'playerCards      playerCards      playerCards';
-    grid-template-columns: 10rem 1fr 1fr;
-    grid-template-rows: 2fr 1fr 1fr;
 
-    .playerContainer {
-        grid-area: playerContainer;
+    grid-template-areas:
+        '.       player2 .'
+        '.       center  .'
+        'player3 center  player4'
+        '.       center  .'
+        'player5 center  player6'
+        '.       center  .'
+        '.       player1 .'
+        'pairs   pairs   pairs'
+        'cards   cards   cards';
+    grid-template-columns: 7rem 1fr 7rem;
+    grid-template-rows: 7rem 1fr 7rem 1fr 7rem 1fr 7rem auto auto;
+
+    & .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: center;
     }
+}
+
+.roomFullContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 50rem;
+    background-color: var(--white);
 }
