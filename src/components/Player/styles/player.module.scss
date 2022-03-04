@@ -1,18 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > p {
+        color: var(--camell);
+    }
+}
+
 .playerContainer {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin: 0 auto;
     width: 7rem;
     height: 7rem;
     border-radius: 50%;
     background-color: var(--transparent-white);
-
     & img {
         width: inherit;
         height: inherit;
         border-radius: 50%;
         object-position: center;
         object-fit: cover;
+    }
+
+    & .playerInTurn {
+        border: 4px solid var(--gold);
+        box-shadow: 0 0 0.5em var(--gold);
     }
 }

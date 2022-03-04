@@ -1,15 +1,33 @@
 .playerCardsContainer {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
     width: 100%;
-    background: var(--transparent-white);
+    min-height: 16rem;
+    background-color: var(--transparent-white);
     grid-area: cards;
     padding: 0 0.5rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
 
-    & .card {
-        width: 10rem;
-        object-fit: contain;
-        margin: 0.5rem 0;
+    & .rightArrow {
+        position: absolute;
+        right: 0.5rem;
+        width: 4rem;
+        height: 4rem;
+        background-color: var(--dark);
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    & .leftArrow {
+        position: absolute;
+        left: 0.5rem;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        background: var(--dark);
+        cursor: pointer;
     }
 }

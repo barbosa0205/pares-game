@@ -1,5 +1,26 @@
 .pairsContainer {
-    background: var(--camell);
+    display: flex;
+    flex-direction: column;
     grid-area: pairs;
     width: 100%;
+    min-height: 10rem;
+
+    & .pairContainer {
+        position: relative;
+        display: flex;
+        width: 10rem;
+        height: inherit;
+
+        & img {
+            position: absolute;
+            width: 9rem;
+            height: 9rem;
+            object-fit: contain;
+
+            &.card1 {
+                left: 1.5rem;
+                z-index: 1;
+            }
+        }
+    }
 }

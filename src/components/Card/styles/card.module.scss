@@ -1,0 +1,32 @@
+.card {
+    width: 10rem;
+    object-fit: contain;
+    margin: 2rem 0;
+    transition: 0.2s ease-in-out;
+}
+
+.hover {
+    &:hover {
+        transform: scale(1.1);
+        margin: 0 1rem;
+        transition: 0.1s ease-in-out;
+    }
+}
+
+.selected {
+    border: 4px solid var(--gold);
+    box-shadow: 0 0 0.7rem var(--camell);
+    border-radius: 1rem;
+    margin: 0.2rem;
+}
+
+.asked {
+    position: relative;
+    bottom: 2rem;
+    transform: scale(1.4);
+    transition: 0.1s ease-in-out;
+    margin: 0 1.3rem;
+    box-shadow: 0 0 0.5rem var(--transparent-dark), 1px 1px 1.5rem var(--gold);
+    border: 4px solid var(--gold);
+    border-radius: 1rem;
+}

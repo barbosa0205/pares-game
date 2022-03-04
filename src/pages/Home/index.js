@@ -28,7 +28,7 @@ export const HomePage = () => {
                     />
                 </Carrousel>
                 {playModal && (
-                    <Modal>
+                    <Modal paddingTop={'15rem'}>
                         <PlayOptions setPlayModal={setPlayModal} />
                     </Modal>
                 )}

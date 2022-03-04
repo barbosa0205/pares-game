@@ -1,5 +1,11 @@
 .deckContainer {
-    width: 10rem;
-    height: 15rem;
-    background: var(--gold);
+    width: 11rem;
+    border-radius: 0.5rem;
+    & img {
+        width: inherit;
+        height: inherit;
+        object-position: center;
+        object-fit: cover;
+        border-radius: inherit;
+    }
 }

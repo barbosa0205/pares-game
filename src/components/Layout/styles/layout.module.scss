@@ -1,6 +1,10 @@
 .mainContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     min-width: 28rem;
+    height: 100vh;
     background-image: linear-gradient(
         to left bottom,
         #39006d,
@@ -9,4 +13,10 @@
         #720676,
         #830e79
     );
+}
+@media (min-width: 1280px) {
+    .mainContainer {
+        width: 80%;
+        margin: 0 auto;
+    }
 }

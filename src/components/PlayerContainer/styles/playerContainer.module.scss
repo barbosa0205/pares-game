@@ -1,4 +1,10 @@
 .container {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    & button {
+        position: absolute;
+        right: 1rem;
+    }
 }

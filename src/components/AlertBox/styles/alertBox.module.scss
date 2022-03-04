@@ -1,0 +1,13 @@
+.alertBox {
+    width: 70%;
+    padding: 3rem 1rem;
+    max-width: 50rem;
+    margin: 1rem 0;
+    border-radius: 1.5rem;
+    border: 5px solid var(--camell);
+    background-color: var(--dark);
+    color: var(--camell);
+    text-align: center;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.226);
+    transition: all 0.3s ease-in-out;
+}

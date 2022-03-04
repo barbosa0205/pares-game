@@ -55,7 +55,10 @@ export const UserProvider = ({ children }) => {
             .then(async () => {
                 const obtainedUser = await getUserByEmail(loginemail)
                 setUser(obtainedUser)
-                localStorage.setItem('user', JSON.stringify(obtainedUser))
+                localStorage.setItem(
+                    'user',
+                    JSON.stringify({ ...obtainedUser, password: 'shhh...' })
+                )
             })
             .catch(error => {
                 console.log(error.code)
@@ -72,14 +75,17 @@ export const UserProvider = ({ children }) => {
                 const exist = await userAlreadyExists(res.user.email)
                 if (exist) {
                     setUser(userExist)
-                    localStorage.setItem('user', JSON.stringify(userExist))
+                    localStorage.setItem(
+                        'user',
+                        JSON.stringify({ ...userExist, password: 'shhh...' })
+                    )
                 } else {
                     const user = {
                         username: `${
                             res.user.displayName.split(' ')[0]
                         }-${nanoid(7)}`,
                         email: res.user.email,
-                        img: res.user.photoURL,
+                        img: getRandomAvatar(),
                         user_id: nanoid(),
                         clan: '',
                         xp: 0,
@@ -90,7 +96,10 @@ export const UserProvider = ({ children }) => {
                     }
                     await addDoc(collection(db, 'users'), user)
                     setUser(user)
-                    localStorage.setItem('user', JSON.stringify(user))
+                    localStorage.setItem(
+                        'user',
+                        JSON.stringify({ ...user, password: 'shhh...' })
+                    )
                     setIsLoggedInWithGoogle(true)
                 }
             })

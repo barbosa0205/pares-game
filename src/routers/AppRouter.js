@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
 import { GamePage } from '../pages/Game'
 import { LoginPage } from '../pages/Login'
 import { MainRoutes } from './MainRoutes'

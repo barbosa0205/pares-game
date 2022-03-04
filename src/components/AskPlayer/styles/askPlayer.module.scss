@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-width: 60%;
+    min-height: 20rem;
+    border-radius: 1.5rem;
+    border: 5px solid var(--camell);
+    background: var(--dark);
+    & .closeContainer {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        & i {
+            margin-right: 1rem;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+        }
+    }
+
+    & .playerContainer {
+        min-width: 10rem;
+        min-height: 10rem;
+        padding: 1rem 2rem;
+        cursor: pointer;
+    }
+}

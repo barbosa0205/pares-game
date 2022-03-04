@@ -1,0 +1,32 @@
+@keyframes timer {
+    0% {
+        background: var(--transparent-green);
+    }
+    100% {
+        background: var(--green2);
+    }
+}
+
+.timer {
+    align-items: center;
+    background: var(--transparent-green);
+    border-radius: inherit;
+    display: flex;
+    height: inherit;
+    justify-content: center;
+    position: absolute;
+    width: inherit;
+    animation: timer 1s infinite linear;
+
+    & > p {
+        color: var(--white);
+        font-family: var(--text-font);
+        font-size: 2.5rem;
+    }
+}
+.timer2 {
+    & > p {
+        color: var(--white);
+        font-size: 2.5rem;
+    }
+}
