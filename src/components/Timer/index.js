@@ -7,7 +7,7 @@ export const Timer = ({
     timerStyle = '',
     drawACard = false,
 }) => {
-    const { setStopTimer, setAskCardAlert, setDrawCardForTimerState } =
+    const { setStopTimer, answerIfPlayerHasCard, setDrawCardForTimerState } =
         useGame()
     const [count, setCount] = useState(time)
     let intervalRef = useRef()
@@ -23,7 +23,7 @@ export const Timer = ({
         if (count === 0) {
             clearInterval(intervalRef.current)
             setStopTimer(true)
-            timerStyle === 'responseCardAlert' && setAskCardAlert(true)
+            timerStyle === 'responseCardAlert' && answerIfPlayerHasCard()
             if (drawACard) {
                 setDrawCardForTimerState(true)
             }

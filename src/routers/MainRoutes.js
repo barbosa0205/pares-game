@@ -8,10 +8,12 @@ import { LockerPage } from '../pages/Locker'
 import { SettingsPage } from '../pages/Settings'
 import { StorePage } from '../pages/Store'
 
+import styles from './styles/mainRoutes.module.scss'
+
 export const MainRoutes = () => {
     return (
         <>
-            <div>
+            <div className={styles.mainContainer}>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="store" element={<StorePage />} />
@@ -19,9 +21,9 @@ export const MainRoutes = () => {
                     <Route path="locker" element={<LockerPage />} />
                     <Route path="settings" element={<SettingsPage />} />
                 </Routes>
-            </div>
 
-            <Navbar />
+                <Navbar />
+            </div>
         </>
     )
 }

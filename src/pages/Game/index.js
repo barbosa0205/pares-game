@@ -17,7 +17,7 @@ import { AskButton } from '../../components/Icon2'
 import { AskPlayer } from '../../components/AskPlayer'
 import { SnatchCard } from '../../components/SnatchCard'
 import { Timer } from '../../components/Timer'
-import { Layout } from '../../components/Layout'
+import { PlayerNotify } from '../../components/PlayerNotify'
 
 export const GamePage = () => {
     const navigate = useNavigate()
@@ -43,7 +43,6 @@ export const GamePage = () => {
         setHasCardMenu,
         setAskedCardValue,
         setStopTimer,
-        askCardAlert,
         cardAskedFor,
         setCardAskedFor,
         answerIfPlayerHasCard,
@@ -53,6 +52,8 @@ export const GamePage = () => {
         setPassTurnState,
         drawCardForTimerState,
         setDrawCardForTimerState,
+        setPlayerAskingAPlayer,
+        setPlayerAnswerAPlayer,
     } = useGame()
 
     const room = params.gameId
@@ -62,7 +63,7 @@ export const GamePage = () => {
     const [askPlayerForCardMenu, toggleAskPlayerForCardMenu] = useMenu(false)
 
     const [players, setPlayers] = useState([])
-
+    const [playerJoined, setPlayerJoined] = useState(null)
     const [cardAskMenu, setCardAskMenu] = useState(false)
     const [cardAskMenuValues, setCardAskMenuValues] = useState(null)
     const [roomFull, setRoomFull] = useState(false)
@@ -80,7 +81,7 @@ export const GamePage = () => {
             return
         }
         const deck = await generateDeckOfCards()
-        socket.emit('startGame', deck)
+        socket.emit('startGame', { deck, pos: 1 })
     }
 
     const getRandomPlayerToOpenTheWater = () => {
@@ -157,7 +158,6 @@ export const GamePage = () => {
     const drawingACard = async () => {
         const playerInTurnUsername = playerInTurn.username
         const userUsername = user.username
-        console.log()
         if (playerInTurnUsername === userUsername) {
             const newCard = await drawACard(playerDeck.deck_id)
             setPlayerDeck({
@@ -184,11 +184,9 @@ export const GamePage = () => {
 
     useEffect(() => {
         if (nextPlayerState) {
-            console.log('SI ESTA JALANDO')
             const next = party.players.find(
                 player => player.socketId === nextPlayerState.socketId
             )
-            console.log(next)
             setPlayerInTurn(next)
             setNextPlayerState(null)
         }
@@ -251,10 +249,6 @@ export const GamePage = () => {
     }, [])
 
     useEffect(() => {
-        answerIfPlayerHasCard()
-    }, [askCardAlert])
-
-    useEffect(() => {
         if (Object.keys(cardAskedFor).length > 0) {
             askForCard()
         }
@@ -265,20 +259,30 @@ export const GamePage = () => {
     }, [playerDeck])
 
     useEffect(() => {
-        socket.on('player-joined', username => {
-            console.log(`${username} connected to the room`)
+        if (playerJoined) {
+            setTimeout(() => {
+                setPlayerJoined(false)
+            }, 2000)
+        }
+    }, [playerJoined])
+
+    useEffect(() => {
+        socket.on('player-joined', ({ username, image }) => {
+            setPlayerJoined({ username, image })
         })
 
         socket.on('party', party => {
             setParty(party)
         })
 
-        socket.on('deckGenerate', async deck => {
+        socket.on('deckGenerate', async data => {
             if (playerDeck || !user) {
                 return
             }
             setStart(true)
-            await drawCards(deck.deck_id, 3)
+            await drawCards(data.deck.deck_id, 3)
+            const pos = data.pos + 1
+            socket.emit('startGame', { deck: data.deck, pos })
         })
 
         socket.on('playerRandom', playerRandom => {
@@ -299,6 +303,14 @@ export const GamePage = () => {
                 receiver: data.receiver,
                 card: data.card,
             })
+        })
+
+        socket.on('playerAskingAPlayer', data => {
+            setPlayerAskingAPlayer(data)
+        })
+
+        socket.on('playerAnswerAPlayer', data => {
+            setPlayerAnswerAPlayer(data)
         })
 
         socket.on('doesPlayerHaveCard', data => {
@@ -361,152 +373,157 @@ export const GamePage = () => {
     }, [party])
 
     return (
-        <Layout>
-            <div className={styles.gameContainer}>
-                <PlayerContainer pos="player2">
-                    <Player
-                        playerData={players.find(p => p.pos === 'player2')}
-                        drawACard={true}
-                    />
-                </PlayerContainer>
-                <PlayerContainer pos="player3">
-                    <Player
-                        playerData={players.find(p => p.pos === 'player3')}
-                        drawACard={true}
-                    />
-                </PlayerContainer>
-                <PlayerContainer pos="player4">
-                    <Player
-                        playerData={players.find(p => p.pos === 'player4')}
-                        drawACard={true}
-                    />
-                </PlayerContainer>
-                <PlayerContainer pos="player5">
-                    <Player
-                        playerData={players.find(p => p.pos === 'player5')}
-                        drawACard={true}
-                    />
-                </PlayerContainer>
-                <PlayerContainer pos="player6">
-                    <Player
-                        playerData={players.find(p => p.pos === 'player6')}
-                        drawACard={true}
-                    />
-                </PlayerContainer>
-                <PlayerContainer pos="player1">
-                    <Player playerData={user} drawACard={true} />
-                    {playerInTurn &&
-                        playerInTurn.username === user.username && (
-                            <>
-                                {cardSelected ? (
-                                    <AskButton
-                                        text={'Preguntar'}
-                                        onClick={askPlayers}
-                                    />
-                                ) : null}
-                            </>
-                        )}
-                </PlayerContainer>
-                <section className={styles.center}>
-                    <Deck />
-                </section>
-                <Pairs />
-                <PlayerCards
-                    deck={playerDeck}
-                    setCardSelected={setCardSelected}
-                    cardSelected={cardSelected}
+        <div className={styles.gameContainer}>
+            <PlayerContainer pos="player2">
+                <Player
+                    playerData={players.find(p => p.pos === 'player2')}
+                    drawACard={true}
                 />
-
-                {user?.role === 'creator' && (
+            </PlayerContainer>
+            <PlayerContainer pos="player3">
+                <Player
+                    playerData={players.find(p => p.pos === 'player3')}
+                    drawACard={true}
+                />
+            </PlayerContainer>
+            <PlayerContainer pos="player4">
+                <Player
+                    playerData={players.find(p => p.pos === 'player4')}
+                    drawACard={true}
+                />
+            </PlayerContainer>
+            <PlayerContainer pos="player5">
+                <Player
+                    playerData={players.find(p => p.pos === 'player5')}
+                    drawACard={true}
+                />
+            </PlayerContainer>
+            <PlayerContainer pos="player6">
+                <Player
+                    playerData={players.find(p => p.pos === 'player6')}
+                    drawACard={true}
+                />
+            </PlayerContainer>
+            <PlayerContainer pos="player1">
+                <Player playerData={user} drawACard={true} />
+                {playerInTurn && playerInTurn.username === user.username && (
                     <>
-                        {!start && (
-                            <Modal blur={false} paddingTop={'20rem'}>
-                                <AlertBox>
-                                    <Button
-                                        text={'START'}
-                                        onClick={() => {
-                                            startGame()
-                                            initGame()
-                                            getRandomPlayerToOpenTheWater()
-                                        }}
-                                    />
-                                </AlertBox>
-                            </Modal>
-                        )}
+                        {cardSelected ? (
+                            <AskButton
+                                text={'Preguntar'}
+                                onClick={askPlayers}
+                            />
+                        ) : null}
                     </>
                 )}
-                {alertPlayerStart && (
-                    <Modal blur={false} paddingTop={'20rem'}>
-                        <AlertBox>
-                            {user?.username === playerInTurn?.username ? (
-                                <h1>Tu abres el agua</h1>
-                            ) : (
-                                <h1>{playerInTurn.username} abre el agua</h1>
-                            )}
-                        </AlertBox>
-                    </Modal>
-                )}
-                {askPlayerForCardMenu && (
-                    <Modal blur={false} paddingTop={'20rem'}>
-                        <AskPlayer
-                            players={party.players}
-                            closeAsk={toggleAskPlayerForCardMenu}
-                            askToPlayer={askToPlayer}
+            </PlayerContainer>
+            <section className={styles.center}>
+                <Deck />
+            </section>
+            <Pairs />
+            <PlayerCards
+                deck={playerDeck}
+                setCardSelected={setCardSelected}
+                cardSelected={cardSelected}
+            />
+
+            {user?.role === 'creator' && (
+                <>
+                    {!start && (
+                        <Modal blur={false} paddingTop={'20rem'}>
+                            <AlertBox>
+                                <Button
+                                    text={'START'}
+                                    onClick={() => {
+                                        startGame()
+                                        initGame()
+                                        getRandomPlayerToOpenTheWater()
+                                    }}
+                                />
+                            </AlertBox>
+                        </Modal>
+                    )}
+                </>
+            )}
+            {alertPlayerStart && (
+                <Modal blur={false} paddingTop={'20rem'}>
+                    <AlertBox>
+                        {user?.username === playerInTurn?.username ? (
+                            <h1>Tu abres el agua</h1>
+                        ) : (
+                            <h1>{playerInTurn.username} abre el agua</h1>
+                        )}
+                    </AlertBox>
+                </Modal>
+            )}
+
+            {playerJoined && (
+                <PlayerNotify
+                    data={playerJoined}
+                    message="Se unio a la partida"
+                />
+            )}
+
+            {askPlayerForCardMenu && (
+                <Modal blur={false} paddingTop={'20rem'}>
+                    <AskPlayer
+                        players={party.players}
+                        closeAsk={toggleAskPlayerForCardMenu}
+                        askToPlayer={askToPlayer}
+                    />
+                </Modal>
+            )}
+
+            {cardAskMenu && cardAskMenuValues && (
+                <Modal paddingTop={'10rem'}>
+                    <AlertBox>
+                        <p>
+                            {cardAskMenuValues.sender} te pregunto por un{' '}
+                            {cardAskMenuValues.card}
+                        </p>
+                    </AlertBox>
+                </Modal>
+            )}
+
+            {snatchCard && (
+                <Modal blur={false} paddingTop={'20rem'}>
+                    <SnatchCard data={snatchCard} />
+                </Modal>
+            )}
+
+            {hasCardMenu && (
+                <Modal blur={false} paddingTop={'20rem'}>
+                    <AlertBox>
+                        <h2>¿Tienes la carta?</h2>
+                        {hasACard ? <h3>SI</h3> : <h3>NO</h3>}
+                        <Timer time={5} timerStyle="responseCardAlert" />
+                        <Button
+                            text="Responder"
+                            onClick={answerIfPlayerHasCard}
                         />
-                    </Modal>
-                )}
+                    </AlertBox>
+                </Modal>
+            )}
 
-                {cardAskMenu && cardAskMenuValues && (
-                    <Modal paddingTop={'10rem'}>
-                        <AlertBox>
-                            <p>
-                                {cardAskMenuValues.sender} te pregunto por un{' '}
-                                {cardAskMenuValues.card}
-                            </p>
-                        </AlertBox>
-                    </Modal>
-                )}
+            {playerResponseMenu && (
+                <Modal blur={false} paddingTop={'15rem'}>
+                    <AlertBox>
+                        {playerResponseCard ? (
+                            <h2>Si tiene la carta</h2>
+                        ) : (
+                            <h2>No tiene la carta</h2>
+                        )}
+                    </AlertBox>
+                </Modal>
+            )}
 
-                {snatchCard && (
-                    <Modal blur={false} paddingTop={'20rem'}>
-                        <SnatchCard data={snatchCard} />
-                    </Modal>
-                )}
-
-                {hasCardMenu && (
-                    <Modal blur={false} paddingTop={'20rem'}>
-                        <AlertBox>
-                            <h2>¿Tienes la carta?</h2>
-                            {hasACard ? <h3>SI</h3> : <h3>NO</h3>}
-                            <Timer time={5} timerStyle="responseCardAlert" />
-                            <Button
-                                text="Responder"
-                                onClick={answerIfPlayerHasCard}
-                            />
-                        </AlertBox>
-                    </Modal>
-                )}
-
-                {playerResponseMenu && (
-                    <Modal blur={false} paddingTop={'15rem'}>
-                        <AlertBox>
-                            {playerResponseCard ? (
-                                <h2>Si tiene la carta</h2>
-                            ) : (
-                                <h2>No tiene la carta</h2>
-                            )}
-                        </AlertBox>
-                    </Modal>
-                )}
-
-                {roomFull && (
-                    <Modal>
-                        <div className={styles.roomFullContainer}>
-                            <h1>Room is full</h1>
-                        </div>
-                    </Modal>
-                )}
-            </div>
-        </Layout>
+            {roomFull && (
+                <Modal>
+                    <div className={styles.roomFullContainer}>
+                        <h1>Room is full</h1>
+                    </div>
+                </Modal>
+            )}
+        </div>
     )
 }

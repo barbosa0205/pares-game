@@ -1,0 +1,34 @@
+.playerNotifyContainer {
+    position: fixed;
+    top: 1rem;
+    right: 0;
+    min-width: 15rem;
+    min-height: 6rem;
+    background: var(--dark);
+    border-radius: 0.5rem;
+
+    & .userContainer {
+        width: inherit;
+        height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & img {
+            width: 5rem;
+            height: 5rem;
+        }
+
+        & p {
+            font-size: 1.6rem;
+            color: var(--camell);
+        }
+    }
+
+    & .messageStyle {
+        font-size: 1.4rem;
+        padding: 0 0.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--camell);
+    }
+}

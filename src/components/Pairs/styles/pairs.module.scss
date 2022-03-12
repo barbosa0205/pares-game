@@ -1,25 +1,33 @@
 .pairsContainer {
     display: flex;
     flex-direction: column;
-    grid-area: pairs;
+    justify-content: center;
     width: 100%;
     min-height: 10rem;
 
-    & .pairContainer {
-        position: relative;
+    & .pairs {
+        width: inherit;
+        min-height: inherit;
         display: flex;
-        width: 10rem;
-        height: inherit;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        & .pairContainer {
+            position: relative;
+            display: flex;
+            width: 10rem;
+            height: 10rem;
+            margin: 0 0.5rem;
 
-        & img {
-            position: absolute;
-            width: 9rem;
-            height: 9rem;
-            object-fit: contain;
+            & img {
+                position: absolute;
+                width: 9rem;
+                height: 9rem;
+                object-fit: contain;
 
-            &.card1 {
-                left: 1.5rem;
-                z-index: 1;
+                &.card1 {
+                    left: 1.5rem;
+                    z-index: 1;
+                }
             }
         }
     }

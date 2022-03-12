@@ -4,30 +4,29 @@
     align-items: center;
     width: 100%;
     min-height: 16rem;
-    background-color: var(--transparent-white);
     grid-area: cards;
     padding: 0 0.5rem;
     overflow-x: scroll;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
 
-    & .rightArrow {
-        position: absolute;
-        right: 0.5rem;
-        width: 4rem;
-        height: 4rem;
-        background-color: var(--dark);
-        border-radius: 50%;
-        cursor: pointer;
-    }
+    // & .rightArrow {
+    //     position: absolute;
+    //     right: 0.5rem;
+    //     width: 4rem;
+    //     height: 4rem;
+    //     background-color: var(--dark);
+    //     border-radius: 50%;
+    //     cursor: pointer;
+    // }
 
-    & .leftArrow {
-        position: absolute;
-        left: 0.5rem;
-        width: 4rem;
-        height: 4rem;
-        border-radius: 50%;
-        background: var(--dark);
-        cursor: pointer;
-    }
+    // & .leftArrow {
+    //     position: absolute;
+    //     left: 0.5rem;
+    //     width: 4rem;
+    //     height: 4rem;
+    //     border-radius: 50%;
+    //     background: var(--dark);
+    //     cursor: pointer;
+    // }
 }

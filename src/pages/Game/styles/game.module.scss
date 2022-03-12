@@ -12,11 +12,11 @@
         'player5 center  player6'
         '.       center  .'
         'player1 player1 player1'
-        'pairs   pairs   pairs'
+        'pairs   .      .'
         'cards   cards   cards';
     grid-template-columns: 8rem 1fr 8rem;
     grid-template-rows: 1fr 8rem 1fr 8rem 1fr 8rem 1fr 8rem auto auto;
-
+    gap: 1rem;
     margin: 0 auto;
     & .center {
         display: flex;

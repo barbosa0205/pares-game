@@ -20,6 +20,8 @@ export const GameProvider = ({ children }) => {
     const [playerCardsPos, setPlayerCardsPos] = useState(0)
     const [passTurnState, setPassTurnState] = useState(false)
     const [drawCardForTimerState, setDrawCardForTimerState] = useState(false)
+    const [playerAskingAPlayer, setPlayerAskingAPlayer] = useState(null)
+    const [playerAnswerAPlayer, setPlayerAnswerAPlayer] = useState(null)
     const startGame = () => {
         setStart(true)
     }
@@ -74,12 +76,19 @@ export const GameProvider = ({ children }) => {
     const answerIfPlayerHasCard = () => {
         setHasCardMenu(false)
         if (Object.keys(cardAskedFor).length) {
+            socket.emit('playerAnswerAPlayer', {
+                sender: cardAskedFor.receiver,
+                receiver: cardAskedFor.sender,
+                card: cardAskedFor.card,
+                hasTheCard: hasACard,
+            })
             socket.emit('doesPlayerHaveCard', {
                 card: hasACard,
                 sender: cardAskedFor.receiver,
                 receiver: cardAskedFor.sender,
                 contrincantDeck: playerDeck,
             })
+
             setCardAskedFor({})
             setAskedCardValue(null)
         }
@@ -143,6 +152,10 @@ export const GameProvider = ({ children }) => {
         setPassTurnState,
         drawCardForTimerState,
         setDrawCardForTimerState,
+        playerAskingAPlayer,
+        setPlayerAskingAPlayer,
+        playerAnswerAPlayer,
+        setPlayerAnswerAPlayer,
     }
     return (
         <GameContext.Provider value={contextValue}>

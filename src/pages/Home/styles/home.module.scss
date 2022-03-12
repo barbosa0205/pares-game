@@ -5,12 +5,11 @@
     grid-template-areas:
         'menubar '
         'title'
-        'carrousel'
-        '.'
-        '.';
+        'carrousel';
     width: 100%;
-    min-height: 76rem;
-    height: 100vh;
+    min-height: 62rem;
+    height: calc(100vh - 4rem);
+    grid-area: page;
 
     h1 {
         grid-area: title;

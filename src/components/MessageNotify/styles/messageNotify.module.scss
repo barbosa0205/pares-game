@@ -1,0 +1,33 @@
+.messageNotifyContainer {
+    position: absolute;
+    min-width: 12rem;
+    max-width: 15rem;
+    min-height: 5rem;
+    max-height: 10rem;
+    background: var(--white);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+
+    & > p {
+        font-size: 1.4rem;
+    }
+}
+
+.left {
+    left: -12rem;
+    top: -3rem;
+}
+
+.right {
+    right: -12rem;
+    top: -3rem;
+}
+
+.center {
+    top: -5rem;
+}
+
+.centerRight {
+    right: -10rem;
+    top: 0rem;
+}
