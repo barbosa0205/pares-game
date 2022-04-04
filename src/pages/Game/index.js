@@ -380,6 +380,10 @@ export const GamePage = () => {
   }, [removePlayer])
 
   useEffect(() => {
+    // socket.on('connected', (port) => {
+
+    // })
+
     socket.on('player-joined', ({ username, image }) => {
       setPlayerJoined({ username, image })
     })
