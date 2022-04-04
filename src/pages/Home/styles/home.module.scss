@@ -11,6 +11,7 @@
   max-height: 80rem;
   height: calc(100vh - 4rem);
   grid-area: page;
+  gap: 2rem;
 
   h1 {
     grid-area: title;
