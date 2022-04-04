@@ -90,6 +90,7 @@ export const PlayOptions = ({ setPlayModal }) => {
                             onChange={handleInputChange}
                         />
                         <Button
+                        type='submit'
                             text={'UNIRSE'}
                             onClick={() => {
                                 setUser({

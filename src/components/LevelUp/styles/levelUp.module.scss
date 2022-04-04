@@ -1,0 +1,26 @@
+.container {
+  grid-area: lvl;
+
+  & h3 {
+    transition: 2s ease-in-out;
+  }
+
+  & .progressBar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    max-width: 60rem;
+    height: 4rem;
+    border: 2px solid var(--camell);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: 2s ease-in-out;
+
+    & .progress {
+      height: inherit;
+      background-color: var(--gold);
+      border-radius: 0.5rem;
+      transition: 2s ease-in-out;
+    }
+  }
+}

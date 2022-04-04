@@ -1,0 +1,30 @@
+.alertNotifyContainer {
+  align-items: center;
+  background: var(--dark);
+  display: flex;
+  height: 5rem;
+  justify-content: center;
+  left: 0;
+  margin: 0 auto;
+  max-height: 30rem;
+  max-width: 40rem;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+
+  & p {
+    color: var(--camell);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  & h3 {
+    color: var(--camell);
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+}

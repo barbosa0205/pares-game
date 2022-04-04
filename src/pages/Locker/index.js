@@ -1,9 +1,10 @@
 import React from 'react'
+import { ComingSoon } from '../../components/CreateAPassword/ComingSoon'
 
 export const LockerPage = () => {
-    return (
-        <div>
-            <h1>LockerPage</h1>
-        </div>
-    )
+  return (
+    <div>
+      <ComingSoon text='Locker' />
+    </div>
+  )
 }

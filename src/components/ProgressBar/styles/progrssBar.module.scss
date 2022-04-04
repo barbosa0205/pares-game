@@ -1,7 +1,17 @@
 .progressBar {
-    min-width: 20rem;
-    height: 2.5rem;
-    border: 0.2rem solid var(--gold);
-    border-radius: 2rem;
-    margin: 1rem 0 0.5rem 0;
+  position: relative;
+  min-width: 20rem;
+  height: 2.5rem;
+  border: 0.2rem solid var(--camell);
+  border-radius: 2rem;
+  margin: 1rem 0 0.5rem 0;
+  overflow: hidden;
+
+  & .progress {
+    position: absolute;
+    border-bottom-left-radius: inherit;
+    border-top-left-radius: inherit;
+    background: var(--gold);
+    height: calc(2.5rem - 0.3rem);
+  }
 }

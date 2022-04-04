@@ -7,15 +7,21 @@ export const Pairs = () => {
     const [openPairs, setOpenPairs] = useState(false)
     return (
         <>
-            <Button
-                text="PARES"
+            <button
+                className={styles.btnPairs}
                 type="button"
-                style={{
-                    gridArea: 'pairs',
-                }}
-            />
+                onClick={() => setOpenPairs(!openPairs)}
+            >
+                PARES
+            </button>
             {openPairs && (
                 <div className={styles.pairsContainer}>
+                    <div className={styles.closeContainer}>
+                        <i
+                            className="ri-close-circle-line"
+                            onClick={() => setOpenPairs(false)}
+                        ></i>
+                    </div>
                     <div className={styles.pairs}>
                         {pairs.map((pair, index) => {
                             return (

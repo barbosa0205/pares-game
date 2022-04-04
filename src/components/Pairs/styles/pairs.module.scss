@@ -1,28 +1,63 @@
+.btnPairs {
+    background: var(--dark);
+    border-radius: 0.5rem;
+    border: 2px solid var(--camell);
+    color: var(--gold);
+    grid-area: pairs;
+    height: 4rem;
+    margin-top: 2rem;
+    position: relative;
+    text-align: center;
+    width: 10rem;
+}
+
 .pairsContainer {
+    align-items: center;
+    background: var(--dark);
+    border-radius: 0.5rem;
+    bottom: 10rem;
+    box-shadow: 0 0 0.5rem var(--transparent-dark);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    min-height: 10rem;
+    left: 0;
+    margin: auto;
+    max-height: 30rem;
+    max-width: 40rem;
+    min-height: 15rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 90%;
+    z-index: 9;
+    overflow-y: scroll;
 
-    & .pairs {
-        width: inherit;
-        min-height: inherit;
+    & .closeContainer {
         display: flex;
-        overflow-x: scroll;
-        overflow-y: hidden;
+        justify-content: flex-end;
+        width: 100%;
+        & i {
+            background: none;
+        }
+    }
+    & .pairs {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        min-height: inherit;
+        width: inherit;
         & .pairContainer {
-            position: relative;
             display: flex;
-            width: 10rem;
-            height: 10rem;
-            margin: 0 0.5rem;
+            height: 12rem;
+            margin: 0.5rem;
+            position: relative;
+            width: 12rem;
 
             & img {
-                position: absolute;
-                width: 9rem;
-                height: 9rem;
+                height: 12rem;
                 object-fit: contain;
+                position: absolute;
+                width: 12rem;
 
                 &.card1 {
                     left: 1.5rem;

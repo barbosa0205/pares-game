@@ -1,50 +1,51 @@
 @import '../../../styles/_mixins.scss';
 
 .dropDownContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid var(--camell);
+  border-radius: 0.5rem;
+  justify-items: center;
+  width: 100%;
+  max-width: 55rem;
+  margin-bottom: 0rem;
+
+  & .subtitle {
+    position: relative;
+    @include subtitle(2rem 0, center, 1.8rem, var(--camell));
     border-bottom: 2px solid var(--camell);
-    border-radius: 0.5rem;
-    justify-items: center;
+    border-top: 2px solid var(--camell);
+    grid-area: subtitle;
+    padding: 1rem 0;
     width: 100%;
-    max-width: 55rem;
-    margin-bottom: 0rem;
+    cursor: pointer;
 
-    & .subtitle {
-        position: relative;
-        @include subtitle(2rem 0, center, 1.8rem, var(--camell));
-        border-bottom: 2px solid var(--camell);
-        border-top: 2px solid var(--camell);
-        grid-area: subtitle;
-        padding: 1rem 0;
-        width: 100%;
+    & > i {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: none;
+      cursor: pointer;
 
-        & > i {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: none;
-            cursor: pointer;
-
-            &:hover {
-                transform: none;
-            }
-        }
+      &:hover {
+        transform: none;
+      }
     }
+  }
 }
 
 .open {
-    transition: 0.3s ease-in-out;
-    height: auto;
-    & .dropButtonContainer {
-        & > i {
-            transform: rotate(180deg);
-        }
+  transition: 0.3s ease-in-out;
+  height: auto;
+  & .dropButtonContainer {
+    & > i {
+      transform: rotate(180deg);
     }
+  }
 }
 
 .close {
-    transition: 0.3s ease-in-out;
-    height: 7rem;
-    overflow: hidden;
+  transition: 0.3s ease-in-out;
+  height: 7rem;
+  overflow: hidden;
 }

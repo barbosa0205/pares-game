@@ -1,57 +1,56 @@
 .mainContainer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 4rem;
-    grid-area: navbar;
-    padding: 0.2rem 0;
-    background: var(--transparent-white);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4rem;
+  grid-area: navbar;
+  padding: 0.2rem 0;
 
-    & i {
-        margin: 0 1rem;
-    }
+  & i {
+    margin: 0 1rem;
+  }
 
-    & .active {
-        & > i {
-            color: var(--gold);
-        }
+  & .active {
+    & > i {
+      color: var(--gold);
     }
+  }
 }
 
 @media (min-width: 600px) {
-    .mainContainer {
-        height: 5rem;
+  .mainContainer {
+    height: 5rem;
 
-        & i {
-            width: 8rem;
-            margin: 0 2rem;
-        }
+    & i {
+      width: 8rem;
+      margin: 0 2rem;
     }
+  }
 }
 @media (min-width: 768px) {
-    .mainContainer {
-        height: 6rem;
+  .mainContainer {
+    height: 6rem;
 
-        & i {
-            width: 12rem;
-            margin: 0 2rem;
-        }
+    & i {
+      width: 12rem;
+      margin: 0 2rem;
     }
+  }
 }
 
 @media (min-height: 660) {
-    .mainContainer {
-        position: relative;
-    }
+  .mainContainer {
+    position: relative;
+  }
 }
 
 @media (min-width: 1280px) {
-    .mainContainer {
-        width: 80%;
-    }
+  .mainContainer {
+    width: 80%;
+  }
 }

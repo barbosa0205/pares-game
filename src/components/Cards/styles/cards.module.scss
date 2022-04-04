@@ -1,0 +1,22 @@
+.cardsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -2rem;
+    bottom: 0;
+    width: 4rem;
+    & img {
+        width: inherit;
+        border-radius: 0;
+    }
+
+    & span {
+        position: absolute;
+        font-size: 2.2rem;
+        font-family: var(--text-font);
+        font-weight: 600;
+        color: var(--camell);
+        padding: 0rem 0.4rem;
+    }
+}

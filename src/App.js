@@ -6,15 +6,13 @@ import { UserProvider } from './contexts/user/UserProvider'
 import { AppRouter } from './routers/AppRouter'
 
 export const App = () => {
-    return (
-        <UserProvider>
-            <SocketProvider>
-                <GameProvider>
-                    <Layout>
-                        <AppRouter />
-                    </Layout>
-                </GameProvider>
-            </SocketProvider>
-        </UserProvider>
-    )
+  return (
+    <UserProvider>
+      <SocketProvider>
+        <GameProvider>
+          <AppRouter />
+        </GameProvider>
+      </SocketProvider>
+    </UserProvider>
+  )
 }

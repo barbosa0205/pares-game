@@ -1,48 +1,59 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 98%;
-    min-height: 20rem;
-    background: var(--dark);
-    border-radius: 1rem;
-    border: 3px solid var(--camell);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 98%;
+  min-height: 20rem;
+  background: var(--dark);
+  border-radius: 1rem;
+  border: 3px solid var(--camell);
 
-    & > img {
-        width: 8rem;
-        border-radius: 50%;
-        object-fit: contain;
-        object-position: cover;
+  & > img {
+    width: 8rem;
+    border-radius: 50%;
+    object-fit: contain;
+    object-position: cover;
+  }
+
+  & > p {
+    color: var(--camell);
+    font-family: var(--text-font);
+    font-weight: 500;
+    font-size: 1.6rem;
+  }
+
+  & h3 {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 2rem;
+  }
+
+  & > .cardsContainer {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, 10rem);
+    justify-content: center;
+    max-height: 30rem;
+    overflow-y: scroll;
+    max-width: 50rem;
+    padding: 1rem;
+    width: 95%;
+
+    & .card {
+      width: 10rem;
+      margin: 0 0.2rem;
+      cursor: pointer;
+      transition: 0.8s ease-in-out;
     }
 
-    & > p {
-        color: var(--camell);
-        font-family: var(--text-font);
-        font-weight: 500;
-        font-size: 1.6rem;
+    & .cardSelected {
+      border: 3px solid var(--gold);
+      transition: 0.3s ease-in-out;
     }
+  }
 
-    & h3 {
-        color: var(--white);
-        font-weight: 500;
-        font-size: 2rem;
-    }
-
-    & > .cardsContainer {
-        padding: 1rem;
-        display: flex;
-        justify-content: center;
-
-        & > img {
-            width: 10rem;
-            margin: 0 0.2rem;
-            cursor: pointer;
-            transition: 0.2s ease-in-out;
-            &:hover {
-                transform: scale(1.1);
-                transition: 0.1s ease-in-out;
-            }
-        }
-    }
+  & .showCard {
+    transition: 1s ease-in-out;
+  }
 }

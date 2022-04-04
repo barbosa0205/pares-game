@@ -1,0 +1,45 @@
+.endGameContainer {
+  display: grid;
+  grid-template-areas:
+    'winner'
+    'lvl'
+    'reward';
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--dark);
+
+  & .winner {
+    grid-area: winner;
+  }
+
+  & h3 {
+    color: var(--camell);
+    font-weight: 500;
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  & p {
+    color: var(--gold);
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  & .rewardContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & button:first-child {
+    width: 50%;
+    max-width: 20rem;
+    margin: 1rem 0;
+  }
+
+  & button:last-child {
+    margin: 1.5rem 0;
+  }
+}
