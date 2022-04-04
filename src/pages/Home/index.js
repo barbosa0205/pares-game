@@ -11,37 +11,38 @@ import { useUser } from '../../contexts/user/useUser'
 import { CreateAPassword } from '../../components/CreateAPassword'
 import { useMenu } from '../../hooks/useMenu'
 export const HomePage = () => {
-    const [menu, toggleMenu] = useMenu(true)
-    const { isLoggedInWithGoogle } = useUser()
-    const [playModal, setPlayModal] = useState(false)
+  const [menu, toggleMenu] = useMenu(true)
+  const { isLoggedInWithGoogle } = useUser()
+  const [playModal, setPlayModal] = useState(false)
 
-    return (
-        <>
-            <div className={styles.mainContainer}>
-                <Menubar />
-                <h1>PARES GAME</h1>
-                <Carrousel>
-                    <GameCard
-                        img={goldCards}
-                        url={`/game/${nanoid()}`}
-                        setPlayModal={setPlayModal}
-                    />
-                </Carrousel>
-                {playModal && (
-                    <Modal paddingTop={'15rem'}>
-                        <PlayOptions setPlayModal={setPlayModal} />
-                    </Modal>
-                )}
-                {isLoggedInWithGoogle && (
-                    <>
-                        {menu && (
-                            <Modal>
-                                <CreateAPassword toggleMenu={toggleMenu} />
-                            </Modal>
-                        )}
-                    </>
-                )}
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className={styles.mainContainer}>
+        <Menubar />
+        <h1>PARES GAME</h1>
+        <Carrousel>
+          <GameCard
+            text={'1 - 6 players'}
+            img={goldCards}
+            url={`/game/${nanoid()}`}
+            setPlayModal={setPlayModal}
+          />
+        </Carrousel>
+        {playModal && (
+          <Modal paddingTop={'15rem'}>
+            <PlayOptions setPlayModal={setPlayModal} />
+          </Modal>
+        )}
+        {isLoggedInWithGoogle && (
+          <>
+            {menu && (
+              <Modal>
+                <CreateAPassword toggleMenu={toggleMenu} />
+              </Modal>
+            )}
+          </>
+        )}
+      </div>
+    </>
+  )
 }
