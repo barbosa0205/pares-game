@@ -1,22 +1,15 @@
 .mainContainer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-width: 28rem;
-    min-height: 100vh;
-    background-image: linear-gradient(
-        to left bottom,
-        #39006d,
-        #4e0071,
-        #610174,
-        #720676,
-        #830e79
-    );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 28rem;
+  min-height: 100vh;
 }
 @media (min-width: 1280px) {
-    .mainContainer {
-        width: 80%;
-        margin: 0 auto;
-    }
+  .mainContainer {
+    width: 80%;
+    margin: 0 auto;
+  }
 }

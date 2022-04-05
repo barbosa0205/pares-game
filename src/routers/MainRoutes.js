@@ -11,19 +11,19 @@ import { StorePage } from '../pages/Store'
 import styles from './styles/mainRoutes.module.scss'
 
 export const MainRoutes = () => {
-    return (
-        <>
-            <div className={styles.mainContainer}>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="store" element={<StorePage />} />
-                    <Route path="friends" element={<FriendsPage />} />
-                    <Route path="locker" element={<LockerPage />} />
-                    <Route path="settings" element={<SettingsPage />} />
-                </Routes>
+  return (
+    <>
+      <div className={styles.mainContainer}>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='store' element={<StorePage />} />
+          <Route path='friends' element={<FriendsPage />} />
+          <Route path='locker' element={<LockerPage />} />
+          <Route path='settings' element={<SettingsPage />} />
+        </Routes>
 
-                <Navbar />
-            </div>
-        </>
-    )
+        <Navbar />
+      </div>
+    </>
+  )
 }
