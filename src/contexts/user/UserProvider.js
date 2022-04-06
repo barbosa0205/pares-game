@@ -10,7 +10,15 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth'
 import { auth, db } from '../../firebase/credentials'
-import { addDoc, collection, getDocs, query, where } from 'firebase/firestore'
+import {
+  addDoc,
+  doc,
+  setDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+} from 'firebase/firestore'
 import { getRandomAvatar } from '../../helpers/avatars/getRandomAvatar'
 import { getError } from '../../helpers/loginErrors'
 import { registerErrors } from '../../helpers/registerErrors'
@@ -75,6 +83,7 @@ export const UserProvider = ({ children }) => {
     const provider = new GoogleAuthProvider()
     signInWithPopup(auth, provider)
       .then(async (res) => {
+        let uid = auth.currentUser.uid
         const exist = await userAlreadyExists(res.user.email)
         if (exist) {
           setUser(userExist)
@@ -95,6 +104,9 @@ export const UserProvider = ({ children }) => {
             coins: 2500,
             gems: 50,
           }
+          const userRef = collection(db, 'users')
+
+          await setDoc(doc(userRef, uid), user)
           await addDoc(collection(db, 'users'), user)
           setUser(user)
           //   localStorage.setItem(
@@ -110,6 +122,7 @@ export const UserProvider = ({ children }) => {
   }
 
   const handleRegister = async ({ username, email, password }, close) => {
+    let uid
     setRegisterError(null)
     if (!username) {
       setRegisterError({ error: 'Coloque un usuario' })
@@ -126,6 +139,8 @@ export const UserProvider = ({ children }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(async () => {
         const usersRef = collection(db, 'users')
+        uid = auth.currentUser.uid
+        console.log(uid)
         const q = query(usersRef, where('username', '==', username))
         let usernameExist
         const querySnapshot = await getDocs(q)
@@ -134,7 +149,6 @@ export const UserProvider = ({ children }) => {
             usernameExist = doc.data().username
           }
         })
-        console.log(usernameExist)
         if (usernameExist) {
           setRegisterError({
             error: 'este usuario ya esta en uso',
@@ -155,7 +169,10 @@ export const UserProvider = ({ children }) => {
           coins: 2500,
           gems: 50,
         }
-        await addDoc(collection(db, 'users'), userToRegister)
+
+        const userRef = collection(db, 'users')
+
+        await setDoc(doc(userRef, uid), userToRegister)
         close((c) => !c)
       })
       .catch((error) => {
